@@ -1,0 +1,90 @@
+@import '/variables.scss';
+
+@font-face {
+    font-family: andantino-script;
+    src: url(../fonts/andantino-script.ttf);
+}
+
+body {
+	font-family: arial;
+	overflow: hidden;
+}
+
+h1 {
+	font-family: arial;
+	text-align: center;
+}
+
+h2 {
+	font-size: 4em;
+	font-weight: 100;
+	margin: 0;
+	color: white;
+	font-family: andantino-script;
+    text-align: center;
+}
+
+h3 {
+	height: 50px;
+	width: 500px;
+	margin: -15px 0 15px 0;
+	text-align: center;
+	border-radius: 30px;
+	font-size: 2.5em;
+	font-weight: 100;
+    font-family: andantino-script;
+}
+
+h4 {
+	margin: 0;
+	color: #222;
+	font-size: 3em;
+	font-weight: 500;
+    font-family: andantino-script;
+    text-align: center;
+}
+
+h5 {
+	margin: 20px;
+	font-size: 1.5em;
+	color: $pink1
+}
+
+h6 {
+	font-size: 1em;
+	margin: 2px;
+	color: #C32040;
+    cursor: pointer;
+}
+
+h6:hover {text-decoration: underline}
+
+ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	padding: 0;
+	list-style-type: none;
+}
+
+span {color: $red1}
+
+a {
+	color: $red1;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {text-decoration: underline}
+
+button {
+	border: 3px solid #f1b3b3;
+	border-radius: 25px;	
+	color: $red1;
+	background-color: white;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.pink {color: $pink1}
