@@ -1,25 +1,25 @@
 <template>
-	<div>
-		<section id="block-services" :class="$route.name">
-			<h1 :class="$route.name">{{ menuTitle }}</h1>
+	<section>
+		<div id="block-services" :class="$route.name">
+			<h1 :class="$route.name"> {{ menuTitle }} </h1>
 			<ul>
 				<li :class="$route.name" v-for="(item, i) in serviceContent" :key="i" :id="item.name" @click="selectService($event)">
-					<a><img :src="srcIcon+item.name+'.png'"><br>{{item.title}}</a>
+					<a><img :src="srcIcon + item.name + '.png'"><br> {{ item.title }} </a>
 				</li>
 			</ul>
-		</section>
+		</div>
 		<animated-fade-in>
-			<section id="block-services-desc" :class="$route.name" v-for="(item, i) in serviceContent" :key="i" v-if="item.name === currentService">
-				<div><img :src="srcPhoto+'-photo.png'"></div>
-				<div>
-					<h3> {{ item.title }} </h3>
-					<p v-if="currentSubService === ''" v-html="item.content"></p>
-					<app-sub-services :currentService="currentService" :currentSubService="currentSubService" v-if="subServicesMode" @setCurrentSubService="setCurrentSubService"></app-sub-services>
-					<app-photo-gallery :mainType="'service'" :currentService="currentService" :currentSubService="currentSubService"></app-photo-gallery>
-				</div>
-			</section>
+		<div id="block-services-desc" :class="$route.name" v-for="(item, i) in serviceContent" :key="i" v-if="item.name === currentService">
+			<div><img :src="srcPhoto+'-photo.png'"></div>
+			<div>
+				<h3> {{ item.title }} </h3>
+				<p v-if="currentSubService === ''" v-html="item.content"></p>
+				<app-sub-services :currentService="currentService" :currentSubService="currentSubService" v-if="subServicesMode" @setCurrentSubService="setCurrentSubService"></app-sub-services>
+				<app-photo-gallery :mainType="'service'" :currentService="currentService" :currentSubService="currentSubService"></app-photo-gallery>
+			</div>
+		</div>
 		</animated-fade-in>
-	</div>
+	</section>
 </template>
 
 <script>
@@ -31,7 +31,9 @@
 		components: {appPhotoGallery, appSubServices},
 		data() {
 			return {
-				srcIcon: 'img/'+this.$route.name+'/service-',
+				currentService: 'birthday',
+				currentSubService: '',
+				srcIcon: 'img/' + this.$route.name + '/service-',
 				serviceAdult: [
 					{
 						name: 'birthday',
@@ -195,8 +197,6 @@
 							Мы знаем, как сделать так, чтобы все гости были восхищены оформлением Вашего праздничного стола, Ваш ребенок прыгал от восторга, а Вы могли похвастаться его фотографиями в социальных сетях.'
 					},
 				],
-				currentService: 'birthday',
-				currentSubService: ''
 			}
 		},
 		computed: {

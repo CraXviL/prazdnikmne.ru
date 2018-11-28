@@ -6,12 +6,11 @@
 			<button class="btn-order">Оставьте заявку</button>
 			<h5>Мы вам обязательно перезвоним</h5>
 		</section>
-		<div id="block-MCs">
+		<section id="block-MCs">
 			<h2>Ведущая Анастасия Баженова</h2>
 			<ul class="MCs-gallery">
-				<li v-for="(item, i) in 6" :href="'img/gallery/MCs/MC-'+i+'.jpg'">
-					<img :src="'img/MCs/MC-'+i+'.jpg'" alt="MC-'+i+'.jpg'">
-				</li>
+				<img v-for="(image, i) in 6" :key="i" :src="'img/MCs/MC-'+i+'.jpg'" @click="index = i">
+	  			<gallery :images="images" :index="index" @close="index = null"></gallery>
 			</ul>
 			<p>Ведущий – самое заметное (после виновника торжества, конечно же) лицо на празднике. Поэтому при выборе ведущего важно заранее понять, приятен ли он/она Вам как человек, вызывает ли симпатию его манера речи. Поэтому Ведущая Анастасия Баженова всегда охотно встречаются с заказчиками, что Вы могли убедиться: да, этот человек сможет провести незабываемый праздник.<br><br>
 			Анастасии под силу организовать и провести праздник любой сложности! В том числе:<br>
@@ -29,7 +28,7 @@
 			- Проведено и организовано более 534 мероприятий.<br>
 			ОСТАВЬТЕ ЗАЯВКУ ПРЯМО СЕЙЧАС!</p>
 			<img src="img/main/adult-ingridients.png">
-		</div>
+		</section>
 		<app-ingridients></app-ingridients>
 		<section id="block-order" class="order" :class="$route.name">
 			<h5>8 (962) 808-84-79, 8 (3852) 58-45-35</h5>
@@ -66,29 +65,21 @@
 	import appServices from './services'
 	import appIngridients from './ingridients'
 	import appReviews from './TheReviews'
+	import VueGallery from 'vue-gallery'
 
 	export default {
-		components: {appServices, appIngridients, appReviews},
-		methods: {
-			installMagnificPopup() {
-				$('.MCs-gallery').magnificPopup({
-					delegate: 'li',
-					type: 'image',
-					removalDelay: 300,
-					zoom: {
-			    		enabled: true,
-			    		duration: 300
-					},
-					gallery: {
-					    enabled: true,
-					    navigateByImgClick: true
-					}
-				});
+		components: {'gallery': VueGallery, appServices, appIngridients, appReviews},
+		data() {
+			return {
+				images: [],
+				index: null
 			}
 		},
 		mounted() {
-			magnificPopup: {
-				this.installMagnificPopup()
+			installGallery: {
+				for (let i = 0; i < 6; i++) {
+					this.images.push('img/gallery/MCs/MC-'+i+'.jpg')
+				}
 			}
 		}
 	}
@@ -108,8 +99,10 @@
 		ul {
 			width: $main-width;
 			margin: 0 auto;
-			li {margin: 10px}
-			img {cursor: pointer}
+			img {
+				cursor: pointer;
+				margin: 10px;
+			}
 			p {color: #3E687E}
 		}
 		&>img {
@@ -137,7 +130,7 @@
 		button {
 			width: 270px;
 			height: 40px;
-			font-size: 1.5em;
+			font-size: 1.4em;
 		}
 	}
 

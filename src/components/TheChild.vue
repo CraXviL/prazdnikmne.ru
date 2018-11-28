@@ -9,7 +9,7 @@
 		<div id="block-animators">
 			<h2>Аниматоры</h2>
 			<app-animator-gallery></app-animator-gallery>
-			<div>
+			<div class="text">
 				<p>Профессиональный аниматор – это тот, кто сможет организовать вполне законный Праздник Непослушания:</p>
 				<ul>
 					<li>будучи взрослым, он сойдет за «своего»;</li>
@@ -78,7 +78,7 @@
 			width: 100%;
 			margin-top: -50px;
 		}
-		&>div {
+		.text {
 			width: 820px;
 			margin: 0 auto;
 			text-align: center;
@@ -105,7 +105,7 @@
 		button {
 			width: 270px;
 			height: 40px;
-			font-size: 1.5em;
+			font-size: 1.4em;
 		}
 	}
 

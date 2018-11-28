@@ -21,7 +21,6 @@
 		methods: {
 			form_close() {
 				$('form').animate({top:-500},500);
-				$('form input[name="name"]').focus();
 			}
 		}
 	}

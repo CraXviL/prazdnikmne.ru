@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<section>
+		<section id="body">
 			<img id="bg-top" src="img\main\bg-top.gif">
 			<img id="logo" class="animated pulse" src="img\main\logo.png">
 			<h5>8 (962) 808-84-79, 8 (3852) 58-45-35</h5>
@@ -16,23 +16,27 @@
 			</nav>
 		</section>
 		<section id="animation">
-			<div id="bottle"><img src="img\animation\anim-bottle.png"></div>
-			<div id="stopper"><img src="img\animation\anim-stopper.png"></div>
-			<div id="ring"><img src="img\animation\anim-ring.png"></div>
-			<div id="glass"><img src="img\animation\anim-glass.png"></div>
-			<div id="ironman"><img src="img\animation\anim-ironman.png"></div>
-			<div id="fair"><img src="img\animation\anim-fair.png"></div>
-			<div id="minion"><img src="img\animation\anim-minion.png"></div>
-			<div id="kid"><img src="img\animation\anim-kid.png"></div>
-			<div id="confetti1"><img src="img\animation\anim-confetti1.png"></div>
-			<div id="confetti2"><img src="img\animation\anim-confetti2.png"></div>
-			<div id="conus"><img src="img\animation\anim-conus.png"></div>
-			<div id="bubble1"><img src="img\animation\anim-bubble1.png"></div>
-			<div id="bubble2"><img src="img\animation\anim-bubble2.png"></div>
-			<div id="bubble3"><img src="img\animation\anim-bubble3.png"></div>
-			<div id="bubble4"><img src="img\animation\anim-bubble4.png"></div>
-			<img id="bg-bottom" src="img\main\bg-bottom.gif">
+			<div id="animationAdult">
+				<div id="bottle"><img src="img\animation\anim-bottle.png"></div>
+				<div id="stopper"><img src="img\animation\anim-stopper.png"></div>
+				<div id="ring"><img src="img\animation\anim-ring.png"></div>
+				<div id="glass"><img src="img\animation\anim-glass.png"></div>
+			</div>
+			<div id="animationChild">
+				<div id="ironman"><img src="img\animation\anim-ironman.png"></div>
+				<div id="fair"><img src="img\animation\anim-fair.png"></div>
+				<div id="minion"><img src="img\animation\anim-minion.png"></div>
+				<div id="kid"><img src="img\animation\anim-kid.png"></div>
+				<div id="confetti1"><img src="img\animation\anim-confetti1.png"></div>
+				<div id="confetti2"><img src="img\animation\anim-confetti2.png"></div>
+				<div id="conus"><img src="img\animation\anim-conus.png"></div>
+				<div id="bubble1"><img src="img\animation\anim-bubble1.png"></div>
+				<div id="bubble2"><img src="img\animation\anim-bubble2.png"></div>
+				<div id="bubble3"><img src="img\animation\anim-bubble3.png"></div>
+				<div id="bubble4"><img src="img\animation\anim-bubble4.png"></div>
+			</div>
 		</section>
+			<img id="bg-bottom" src="img\main\bg-bottom.gif">
 	</div>
 </template>
 
@@ -43,6 +47,8 @@
 		$(window).resize(minion);
 		$('#adult').hover(animation_adult, animation_adult_back);
 		$('#child').hover(animation_child, animation_child_back);
+		$('#animationAdult').hide();
+		$('#animationChild').hide();
 	}
 
 	function minion() {
@@ -55,7 +61,7 @@
 	function animation_adult() {
 		adultAnim();
 		adultAnimID = setInterval(adultAnim, 1500);
-
+		$('#animationAdult').show();
 		$('#bg-bottom').animate({bottom: -190}, 300);
 		$('#bottle img').animate({height: '+=450px', bottom: '+=300px'}, 500);
 		$('#stopper img').animate({height: '+=300px', bottom: '+=1080px', left: '+=350px'},
@@ -72,6 +78,9 @@
 		$('#bottle img').animate({height: '-=450px', bottom: '-=300px'}, 300);
 		$('#ring img').animate({bottom: '-=150px', left: '-=100px'}, 300);
 		$('#glass img').animate({height: 300, right: -400}, 300);
+		// setTimeout(function(){
+		// 	$('#animationAdult').hide();
+		// }, 300);
 	}
 
 	function animation_child() {
@@ -79,6 +88,7 @@
 			ironmanAnim();
 			ironmanID = setInterval(ironmanAnim, 5000);
 		}, 500);
+		$('#animationChild').show();
 		$('#bg-bottom').animate({bottom: -190}, 300);
 		$('#minion img').animate({bottom: -100}, 300);
 		$('#kid img').animate({bottom:0, right:0}, 500);
@@ -117,6 +127,9 @@
 		$('#bubble2 img').stop(true).animate({width:125, height:177, left:100, bottom:-177}, 300);
 		$('#bubble3 img').stop(true).animate({width:150, height:94, left:500, bottom:-94}, 300);
 		$('#bubble4 img').stop(true).animate({width:150, height:160, left:1000, bottom:-160}, 300);
+		// setTimeout(function(){
+		// 	$('#animationChild').hide();
+		// }, 300);
 	}
 
 	function ironmanAnim() {
@@ -182,17 +195,11 @@
 
 <style lang="scss">
 
-	body>div>section {
-		min-width: 550px;
+	#body {
+		min-width: 800px;
 		text-align: center;
 		#bg-top {
 			width: 100%
-		}
-		#bg-bottom {
-			width: 100%;
-			position: absolute;
-			bottom: 0;
-			left: 0;
 		}
 		#logo {
 			width: 60%;
@@ -217,8 +224,15 @@
 		}
 	}
 
+	#bg-bottom {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
 	@media (max-width: 735px), (orientation: portrait) {
-		#animation {display: none}
+		#animation, #bg-bottom {display: none}
 		a, h4, #logo {margin-top: 10%}
 	}
 	@media (max-height: 715px) {#bg-bottom {display: none}}

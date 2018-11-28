@@ -10,30 +10,39 @@ import TheAdult from './components/TheAdult';
 
 const routes = [
 	{
-		name: 'start',
+		name: 'home',
 		path: '',
+		redirect: '/start'
+	},
+	{
+		name: 'start',
+		path: '/start',
 		component: TheStart
 	},
 	{
 		name: 'main',
-		path: '',
+		path: '/',
 		component: TheMain,
 		children: [
 			{
 				name: 'child',
-				path: '/child',
+				path: 'child',
 				component: TheChild
 			},
 			{
 				name: 'adult',
-				path: '/adult',
+				path: 'adult',
 				component: TheAdult
 			},
 		]
+	},
+	{
+		path: '*',
+		redirect: '/start'
 	}
 ];
 
 export default new VueRouter({
-	mode: 'hash',
+	mode: 'history',
 	routes
 });

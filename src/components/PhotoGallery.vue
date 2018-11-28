@@ -1,21 +1,21 @@
 <template>
-	<div>
-	<ul :class="$route.name + currentService + '-' + currentSubService + '-photoGallery'">
-		<li v-for="(item, i) in photoGallerySize" :key="i" :href="srcPhoto + i + '.jpg'">
-			<img :src="srcPhotoSmall + i + '.jpg'">
-		</li>
-	</ul>
-	<ul :class="$route.name + currentService + '-' + currentSubService + '-videoGallery'">
-		<li v-for="(item, i) in videoGallerySize" :key="i" :href="srcVideo[i]">
-			<img :src="srcVideoSmall + i + '.jpg'">
-		</li>
-	</ul>
-	</div>
+	<section>
+		<ul>
+			<img v-for="(item, i) in photoGallerySize" :key="i" :src="srcPhotoSmall + i + '.jpg'" @click="index = i">
+		</ul>
+		<gallery :images="images" :index="index" :options="{youTubeVideoIdProperty: 'youtube', youTubePlayerVars: undefined, youTubeClickToPlay: true}" @close="index = null"></gallery>
+<!-- 		<ul>
+			<img v-for="(item, i) in videoGallerySize" :key="i" :src="srcVideoSmall + i + '.jpg'">
+		</ul> -->
+	</section>
 </template>
 
 <script>
 
+	import VueGallery from 'vue-gallery'
+
 	export default {
+		components: {'gallery': VueGallery},
 		props: {
 			mainType: {type: String, required: true},
 			currentService: {type: String, required: true},
@@ -23,8 +23,16 @@
 		},
 		data() {
 			return {
-			videoLinks: {child: {birthday:['www.youtube.com/embed/ZSMfXx4NgPI','www.youtube.com/embed/L5SRklmWzqM','www.youtube.com/embed/jHyENX4JhI4','www.youtube.com/embed/OD1Q8_fAUVw','www.youtube.com/embed/dm6JgqeYUcA', 'www.youtube.com/embed/iz89B3-2C-s', 'www.youtube.com/embed/ciwaUVCik8k','www.youtube.com/embed/i3jrNyiCouM', 'www.youtube.com/embed/zRE5JUG35FE'],newyear:['www.youtube.com/embed/6voeBx5Zp1E'],graduation:['www.youtube.com/embed/6_CalPzu55Y'],matinee:['www.youtube.com/embed/jkh2QBoc0UA','www.youtube.com/embed/6voeBx5Zp1E'],calendar:['www.youtube.com/embed/6VkWT1TRNwk'],childbirth:['www.youtube.com/embed/b_k70YyS1Mg'],party:['www.youtube.com/embed/6VkWT1TRNwk', 'www.youtube.com/embed/dp75Jk2ZLCs'],quest:['www.youtube.com/embed/OoJezgdT1DE'],cryoShow:['www.youtube.com/embed/b1SaDsRpyWw'],bubbleShow:['www.youtube.com/embed/nFfhQHFtcAg']},
-			adult: {childbirth:['www.youtube.com/embed/b_k70YyS1Mg'],presentation:['www.youtube.com/embed/xfi84q1hK-k'],business:['www.youtube.com/embed/xfi84q1hK-k'],wedding:['www.youtube.com/embed/Gk7d2gaxdqU','www.youtube.com/embed/TauZT36fFmY','www.youtube.com/embed/Twgd0f3SpdE','www.youtube.com/embed/y5PyxRI5X1E'],cryoShow:['www.youtube.com/embed/b1SaDsRpyWw'],flower:['www.youtube.com/embed/8T5T5znl9Ek'],bubbleShow:['www.youtube.com/embed/nFfhQHFtcAg']}}
+				images: [],
+				index: null,
+			videoLinks: {
+			child: {birthday:['ZSMfXx4NgPI','L5SRklmWzqM','jHyENX4JhI4','OD1Q8_fAUVw','dm6JgqeYUcA', 'iz89B3-2C-s', 'ciwaUVCik8k','i3jrNyiCouM', 'zRE5JUG35FE'],newyear:['6voeBx5Zp1E'],graduation:['6_CalPzu55Y'],matinee:['jkh2QBoc0UA','6voeBx5Zp1E'],calendar:['6VkWT1TRNwk'],childbirth:['b_k70YyS1Mg'],party:['6VkWT1TRNwk', 'dp75Jk2ZLCs'],quest:['OoJezgdT1DE'],cryoShow:['b1SaDsRpyWw'],bubbleShow:['nFfhQHFtcAg']},
+			adult: {childbirth:['b_k70YyS1Mg'],presentation:['xfi84q1hK-k'],business:['xfi84q1hK-k'],wedding:['Gk7d2gaxdqU','TauZT36fFmY','Twgd0f3SpdE','y5PyxRI5X1E'],cryoShow:['b1SaDsRpyWw'],flower:['8T5T5znl9Ek'],bubbleShow:['nFfhQHFtcAg']}}
+			}
+		},
+		mounted() {
+			installGallery: {
+				this.installGallery()
 			}
 		},
 		computed: {
@@ -32,16 +40,16 @@
 				return this.currentSubService !== '' ? this.currentSubService : this.currentService
 			},
 			srcPhoto() {
-				return 'img/gallery/'+this.$route.name+'-photo/'+this.mainType+'-'+this.galleryType+'-'
+				return 'img/gallery/' + this.$route.name + '-photo/' + this.mainType + '-' + this.galleryType + '-'
 			},
 			srcPhotoSmall() {
-				return 'img/gallery/'+this.$route.name+'-photo/small/'+this.mainType+'-'+this.galleryType+'-'
+				return 'img/gallery/' + this.$route.name + '-photo/small/' + this.mainType + '-' + this.galleryType + '-'
 			},
 			srcVideo() {
 				return this.videoLinks[this.$route.name][this.galleryType]
 			},
 			srcVideoSmall() {
-				return 'img/gallery/'+this.$route.name+'-video/'+this.mainType+'-'+this.galleryType+'-'
+				return 'img/gallery/' + this.$route.name + '-video/' + this.mainType + '-' + this.galleryType + '-'
 			},
 			videoGallerySize() {
 				if (this.videoLinks[this.$route.name][this.galleryType] !== undefined)
@@ -169,62 +177,49 @@
 			}
 		},
 		methods: {
-			installMagnificPopup() {
-				$('.'+this.$route.name+this.currentService+'-'+this.currentSubService+'-photoGallery').magnificPopup({
-					delegate: 'li',
-					type: 'image',
-					removalDelay: 300,
-					zoom: {
-			    		enabled: true,
-			    		duration: 300
-					},
-					gallery: {
-					    enabled: true,
-					    navigateByImgClick: true
-					}
-				});
-				$('.'+this.$route.name+this.currentService+'-'+this.currentSubService+'-videoGallery').magnificPopup({
-					delegate: 'li',
-					type: 'iframe',
-					removalDelay: 300,
-					gallery: {
-					    enabled: true,
-					    navigateByImgClick: true
-					},
-					iframe: {
-					  patterns: {
-					    youtube: {
-					      index: 'youtube.com/',
-					      id: '',
-					      src: '//%id%?autoplay=1'
-					    },
-					  },
-					},
-				})
+			installGallery() {
+				for (let i = 0; i < this.photoGallerySize; i++) {
+					let href = this.srcPhoto + i + '.jpg';
+					let type = 'image/jpeg';
+					this.images.push({ href, type });
+				};
+				if (this.mainType === 'service') {
+					for (let i = 0; i < this.videoGallerySize; i++) {
+			        	let type = 'text/html';
+			        	let youtube = this.srcVideo[i];
+			        	let poster = 'https://img.youtube.com/vi/' + this.srcVideo[i] + '/maxresdefault.jpg';
+						this.images.push({ type, youtube, poster });
+			        }
+			    }
 			}
 		},
-		mounted() {
-			magnificPopup: {
-				this.installMagnificPopup()
+		watch: {
+			currentSubService() {
+				this.images = [];
+				this.installGallery();
 			}
 		}
 	}
-	
+
 </script>
 
 <style lang="scss" scoped>
 
-	div{
+	section {
 		display: flex;
 		justify-content: space-around;
+		&>ul {
+			display: flex;
+			justify-content: center;
+		}
 	}
-	
-	li {
+
+	img {
 		cursor: pointer;
 		position: absolute;
 		opacity: 0
 	}
-	li:last-child {
+	img:last-child {
 		opacity: 1
 	}
 

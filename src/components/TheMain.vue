@@ -70,9 +70,10 @@
 
 	@import '../styles/variables.scss';
 
-	body {
-		overflow: auto;
-	}
+
+	html {min-width: $main_width}
+
+	body {overflow: auto}
 
 	.container {
 		display: flex;
@@ -84,7 +85,7 @@
 		display: flex;
 		justify-content: center;	
 		#logo {
-			background: url("/img/main/logo-sm.png") center no-repeat;
+			background: url(/img/main/logo-sm.png) center no-repeat;
 			background-size: contain;
 			flex-basis: 20%;
 		}
@@ -129,6 +130,14 @@
 	    	opacity: .75;
 	    	color: black;
 	    }
+	}
+
+	.blueimp-gallery-display {
+		display: none;
+	}
+
+	body:last-child .blueimp-gallery>.slides>.slide>.video-content:not(.video-loading)>a {
+		background: url(/dist/video-play.png) center no-repeat
 	}
 
 </style>

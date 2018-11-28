@@ -1,23 +1,23 @@
 <template>
-	<div>
-		<section id="block-ingridients" :class="$route.name">
+	<section>
+		<div id="block-ingridients" :class="$route.name">
 			<ul>
 				<li :id="item.name" :class="$route.name" v-for="(item, i) in ingridientContent" :key="i" @click="onClick($event)">
 					<a> {{ item.title }} </a>
 				</li>
 			</ul>
-		</section>
+		</div>
 		<animated-fade-in>
-			<section id="block-ingridients-desc" :class="$route.name" v-for="(item, i) in ingridientContent" :key="i" v-if="item.name === ingridient">
-				<div><img :src="src+item.name+'-photo.png'"></div>
-				<div>
-					<h3> {{ item.title }} </h3>
-					<p v-html="item.content"></p>
-					<app-photo-gallery :mainType="'ingridient'" :currentService="item.name" :currentSubService="''"></app-photo-gallery>
-				</div>
-			</section>
+		<div id="block-ingridients-desc" :class="$route.name" v-for="(item, i) in ingridientContent" :key="i" v-if="item.name === currentIngridient">
+			<div><img :src="srcIcon + item.name + '-photo.png'"></div>
+			<div>
+				<h3> {{ item.title }} </h3>
+				<p v-html="item.content"></p>
+				<app-photo-gallery :mainType="'ingridient'" :currentService="currentIngridient" :currentSubService="''"></app-photo-gallery>
+			</div>
+		</div>
 		</animated-fade-in>
-	</div>
+	</section>
 </template>
 
 <script>
@@ -28,8 +28,8 @@
 		components: {appPhotoGallery},
 		data() {
 			return {
-				ingridient: 'special_effects',
-				src: 'img/'+this.$route.name+'/ingridient-',
+				currentIngridient: 'special_effects',
+				srcIcon: 'img/' + this.$route.name + '/ingridient-',
 				ingridientAdult: [
 					{
 						name: 'special_effects',
@@ -89,7 +89,7 @@
 		},
 		methods: {
 			onClick(e) {
-				this.ingridient = e.currentTarget.getAttribute('id');
+				this.currentIngridient = e.currentTarget.getAttribute('id');
 			}
 		}
 	}
