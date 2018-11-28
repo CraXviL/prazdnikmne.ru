@@ -14,6 +14,7 @@
 					<h4> {{ item.title}} </h4>
 				</router-link>
 			</nav>
+			<img id="bg-bottom" src="img\main\bg-bottom.gif">
 		</section>
 		<section id="animation">
 			<div id="animationAdult">
@@ -36,7 +37,6 @@
 				<div id="bubble4"><img src="img\animation\anim-bubble4.png"></div>
 			</div>
 		</section>
-			<img id="bg-bottom" src="img\main\bg-bottom.gif">
 	</div>
 </template>
 
@@ -206,13 +206,12 @@
 			max-width: 1000px;
 		}
 		nav {
-			width: 60%;
+			width: 70%;
 			margin: 0 auto;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-around;
 			a {
-				margin-top: 1%;
 				border-top: 2px solid rgba(254, 0, 148, 0);
 				border-bottom: 2px solid rgba(254, 0, 148, 0);
 			}
@@ -222,20 +221,18 @@
 				text-decoration: none;
 			}
 		}
-	}
-
-	#bg-bottom {
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-		left: 0;
+		#bg-bottom {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
 	}
 
 	@media (max-width: 735px), (orientation: portrait) {
 		#animation, #bg-bottom {display: none}
-		a, h4, #logo {margin-top: 10%}
+		a, h5, #logo {margin-top: 5%}
 	}
-	@media (max-height: 715px) {#bg-bottom {display: none}}
 	/*******************************ANIMATION***********************************/
 
 	#animation img {
