@@ -18,7 +18,7 @@
 				<h5>8 (3852) 58-45-35</h5>
 			</div>
 		</header>
-		<orderForm></orderForm>
+		<app-order-form></app-order-form>
 		<animated-fade-in>
 			<router-view></router-view>
 		</animated-fade-in>
@@ -27,10 +27,10 @@
 
 <script>
 
-	import orderForm from './orderForm'
+	import appOrderForm from './orderForm';
 
 	export default {
-		components: {orderForm},
+		components: {appOrderForm},
 		data() {
 			return {
 				menu: [
@@ -47,29 +47,28 @@
 		},
 		mounted() {
 			form: {
-				this.form_open()
+				this.form_open();
 			}
 		},
 		updated() {
 			form: {
-				this.form_open()
+				this.form_open();
 			}
 		},
 		methods: {
 			form_open() {
 				$('.btn-order').on('click', function(){
-					$('form').animate({top:100},500)
+					$('form').animate({top:100},500);
 				});
 			}
 		}
-	}
+	};
 
 </script>
 
 <style lang="scss">
 
 	@import '../styles/variables.scss';
-
 
 	html {min-width: $main_width}
 

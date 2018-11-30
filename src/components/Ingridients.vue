@@ -22,7 +22,7 @@
 
 <script>
 
-	import appPhotoGallery from './PhotoGallery'
+	import appPhotoGallery from './PhotoGallery';
 		
 	export default {
 		components: {appPhotoGallery},
@@ -80,11 +80,11 @@
 						content: 'Помните, как в «Смещариках» Пину объясняли, что такое фейерверк: это чувственный фонтан брызг,  как метеоритный дождь, должно быть красиво!  Как замечательно сказано.<br><br>В любом возрасте люди с восхищением глядят в темное небо на праздничные салюты.<br><br>Вы можете подарить Вашему ребенку эти вдохновенные огоньки, брызги торжества.<br><br>Мы организуем это для Вас - <b>безопасно и невероятно красиво.'
 					}
 				],
-			}
+			};
 		},
 		computed: {
 			ingridientContent() {
-				return this.$route.name==='adult' ? this.ingridientAdult : this.ingridientChild
+				return this.$route.name==='adult' ? this.ingridientAdult : this.ingridientChild;
 			}
 		},
 		methods: {
@@ -92,7 +92,7 @@
 				this.currentIngridient = e.currentTarget.getAttribute('id');
 			}
 		}
-	}
+	};
 
 </script>
 

@@ -27,7 +27,7 @@
 			- Более 150 костюмов;<br>
 			- Проведено и организовано более 534 мероприятий.<br>
 			ОСТАВЬТЕ ЗАЯВКУ ПРЯМО СЕЙЧАС!</p>
-			<img src="img/main/adult-ingridients.png">
+			<img src="img/main/adult-ingridients.png" alt="adult-ingridients.png">
 		</section>
 		<app-ingridients></app-ingridients>
 		<section id="block-order" class="order" :class="$route.name">
@@ -39,11 +39,11 @@
 		<section id="block-crew">
 			<h2>Команда волшебников</h2>
 			<ul>
-				<li><img src="img/photo/crew-boss.jpg"><p>Основатель<br>компании:<br>Баженова Анастасия</p></li>
-				<li><img src="img/photo/crew-comdir.jpg" alt="photo"><p>Коммерческий<br>директов:<br>Привалов Олег</p></li>
-				<li><img src="img/photo/crew-art.jpg" alt="photo"><p>АРТ-Менеджер:<br>Липовая Анастасия</p></li>
-				<li><img src="img/photo/crew-adm.jpg" alt="photo"><p>Офисный<br>администратор:<br>Кустова Анна</p></li>
-				<li><img src="img/photo/crew-anim.jpg" alt="photo"><p>Весёлые<br>аниматоры</p></li>
+				<li><img src="img/photo/crew-boss.jpg" alt="boss"><p>Основатель<br>компании:<br>Баженова Анастасия</p></li>
+				<li><img src="img/photo/crew-comdir.jpg" alt="comdir"><p>Коммерческий<br>директов:<br>Привалов Олег</p></li>
+				<li><img src="img/photo/crew-art.jpg" alt="art"><p>АРТ-Менеджер:<br>Липовая Анастасия</p></li>
+				<li><img src="img/photo/crew-adm.jpg" alt="adm"><p>Офисный<br>администратор:<br>Кустова Анна</p></li>
+				<li><img src="img/photo/crew-anim.jpg" alt="anim"><p>Весёлые<br>аниматоры</p></li>
 			</ul>
 		</section>
 		<section id="block-bottom">
@@ -55,17 +55,17 @@
 				<br><br><span>Х</span>отим то, не знаем что, но чтобы было шикарно? – Сложно, но вполне реализуемо. 
 				<br><br><span>Мы креативим для Вас!</span>
 			</p>
-			<img id="bottom-img" src="img/main/adult-bottom.png">
+			<img id="bottom-img" src="img/main/adult-bottom.png" alt="adult-bottom.png">
 		</section>
 	</div>
 </template>
 
 <script>
 
-	import appServices from './services'
-	import appIngridients from './ingridients'
-	import appReviews from './TheReviews'
-	import VueGallery from 'vue-gallery'
+	import appServices from './services';
+	import appIngridients from './ingridients';
+	import appReviews from './TheReviews';
+	import VueGallery from 'vue-gallery';
 
 	export default {
 		components: {'gallery': VueGallery, appServices, appIngridients, appReviews},
@@ -73,16 +73,16 @@
 			return {
 				images: [],
 				index: null
-			}
+			};
 		},
 		mounted() {
 			installGallery: {
 				for (let i = 0; i < 6; i++) {
-					this.images.push('img/gallery/MCs/MC-'+i+'.jpg')
+					this.images.push('img/gallery/MCs/MC-'+i+'.jpg');
 				}
 			}
 		}
-	}
+	};
 
 </script>
 

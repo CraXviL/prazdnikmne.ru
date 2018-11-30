@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<section id="body">
-			<img id="bg-top" src="img\main\bg-top.gif">
-			<img id="logo" class="animated pulse" src="img\main\logo.png">
+			<img id="bg-top" src="img/main/bg-top.gif" alt="bg-top.gif">
+			<img id="logo" class="animated pulse" src="img/main/logo.png" alt="logo.png">
 			<h5>8 (962) 808-84-79, 8 (3852) 58-45-35</h5>
 			<nav>
 				<router-link v-for="item in $parent.menu"
@@ -14,27 +14,27 @@
 					<h4> {{ item.title}} </h4>
 				</router-link>
 			</nav>
-			<img id="bg-bottom" src="img\main\bg-bottom.gif">
+			<img id="bg-bottom" src="img/main/bg-bottom.gif" alt="bg-bottom.gif">
 		</section>
 		<section id="animation">
 			<div id="animationAdult">
-				<div id="bottle"><img src="img\animation\anim-bottle.png"></div>
-				<div id="stopper"><img src="img\animation\anim-stopper.png"></div>
-				<div id="ring"><img src="img\animation\anim-ring.png"></div>
-				<div id="glass"><img src="img\animation\anim-glass.png"></div>
+				<div id="bottle"><img src="img/animation/anim-bottle.png" alt="bottle"></div>
+				<div id="stopper"><img src="img/animation/anim-stopper.png" alt="stopper"></div>
+				<div id="ring"><img src="img/animation/anim-ring.png" alt="ring"></div>
+				<div id="glass"><img src="img/animation/anim-glass.png" alt="glass"></div>
 			</div>
 			<div id="animationChild">
-				<div id="ironman"><img src="img\animation\anim-ironman.png"></div>
-				<div id="fair"><img src="img\animation\anim-fair.png"></div>
-				<div id="minion"><img src="img\animation\anim-minion.png"></div>
-				<div id="kid"><img src="img\animation\anim-kid.png"></div>
-				<div id="confetti1"><img src="img\animation\anim-confetti1.png"></div>
-				<div id="confetti2"><img src="img\animation\anim-confetti2.png"></div>
-				<div id="conus"><img src="img\animation\anim-conus.png"></div>
-				<div id="bubble1"><img src="img\animation\anim-bubble1.png"></div>
-				<div id="bubble2"><img src="img\animation\anim-bubble2.png"></div>
-				<div id="bubble3"><img src="img\animation\anim-bubble3.png"></div>
-				<div id="bubble4"><img src="img\animation\anim-bubble4.png"></div>
+				<div id="ironman"><img src="img/animation/anim-ironman.png" alt="ironman"></div>
+				<div id="fair"><img src="img/animation/anim-fair.png" alt="fair"></div>
+				<div id="minion"><img src="img/animation/anim-minion.png" alt="minion"></div>
+				<div id="kid"><img src="img/animation/anim-kid.png" alt="kid"></div>
+				<div id="confetti1"><img src="img/animation/anim-confetti1.png" alt="confetti1"></div>
+				<div id="confetti2"><img src="img/animation/anim-confetti2.png" alt="confetti2"></div>
+				<div id="conus"><img src="img/animation/anim-conus.png" alt="conus"></div>
+				<div id="bubble1"><img src="img/animation/anim-bubble1.png" alt="bubble1"></div>
+				<div id="bubble2"><img src="img/animation/anim-bubble2.png" alt="bubble2"></div>
+				<div id="bubble3"><img src="img/animation/anim-bubble3.png" alt="bubble3"></div>
+				<div id="bubble4"><img src="img/animation/anim-bubble4.png" alt="bubble4"></div>
 			</div>
 		</section>
 	</div>
@@ -49,11 +49,11 @@
 		$('#child').hover(animation_child, animation_child_back);
 		$('#animationAdult').hide();
 		$('#animationChild').hide();
-	}
+	};
 
 	function minion() {
 		$('#minion img').css('left', function() {
-			return $(window).width()/2-250
+			return $(window).width()/2-250;
 		});
 	}
 
@@ -66,7 +66,7 @@
 		$('#bottle img').animate({height: '+=450px', bottom: '+=300px'}, 500);
 		$('#stopper img').animate({height: '+=300px', bottom: '+=1080px', left: '+=350px'},
 							1000, function() {
-			$('#stopper img').css({height: 150, bottom: -150, left: 0})
+			$('#stopper img').css({height: 150, bottom: -150, left: 0});
 		});
 		$('#ring img').animate({bottom: '+=150px', left: '+=100px'}, 300);
 		$('#glass img').animate({height: '+=300px', right: '+=400px'}, 500);
@@ -78,9 +78,6 @@
 		$('#bottle img').animate({height: '-=450px', bottom: '-=300px'}, 300);
 		$('#ring img').animate({bottom: '-=150px', left: '-=100px'}, 300);
 		$('#glass img').animate({height: 300, right: -400}, 300);
-		// setTimeout(function(){
-		// 	$('#animationAdult').hide();
-		// }, 300);
 	}
 
 	function animation_child() {
@@ -127,23 +124,20 @@
 		$('#bubble2 img').stop(true).animate({width:125, height:177, left:100, bottom:-177}, 300);
 		$('#bubble3 img').stop(true).animate({width:150, height:94, left:500, bottom:-94}, 300);
 		$('#bubble4 img').stop(true).animate({width:150, height:160, left:1000, bottom:-160}, 300);
-		// setTimeout(function(){
-		// 	$('#animationChild').hide();
-		// }, 300);
 	}
 
 	function ironmanAnim() {
 		$('#ironman img').animate({top: '-=800px', left: '+=1500px'}, 1000,
-							function() {$(this).css({top: 300, left: -500})
-		})
+							function() {$(this).css({top: 300, left: -500});
+		});
 	}
 
 	function adultAnim() {
 		$('#bouquet img').animate({height: '+=400px', bottom: '+=1080px', left: '+=1500px'},
-						1500, function() {$(this).css({height: 100,	bottom: -100, left: 0})
+						1500, function() {$(this).css({height: 100,	bottom: -100, left: 0});
 		});
 		$('#garter img').animate({height: '+=200px', bottom: '+=1080px', left: '+=1500px'},
-						1000, function() {$(this).css({height: 100, bottom: -100, left: 300})
+						1000, function() {$(this).css({height: 100, bottom: -100, left: 300});
 		});
 	}
 
@@ -156,39 +150,39 @@
 		$('#bubble2 img').animate({left: offsetX, bottom: offsetY}, 1000);
 		$('#bubble3 img').animate({left: offsetX, bottom: offsetY}, 1500);
 		$('#bubble4 img').animate({left: offsetX, bottom: offsetY}, 1200);
-		}, 500)
+		}, 500);
 	}
 
 	function bubble1Up() {
-		$('#bubble1 img').animate({width:'-=64px',height:'-=54px'},	10000, bubble1Down)
+		$('#bubble1 img').animate({width:'-=64px',height:'-=54px'},	10000, bubble1Down);
 	}
 
 	function bubble1Down() {
-		$('#bubble1 img').animate({width:'+=64px',height:'+=54px'},	10000, bubble1Up)
+		$('#bubble1 img').animate({width:'+=64px',height:'+=54px'},	10000, bubble1Up);
 	}
 
 	function bubble2Up() {
-		$('#bubble2 img').animate({width:'-=31px',height:'-=44px'},	8000, bubble2Down)
+		$('#bubble2 img').animate({width:'-=31px',height:'-=44px'},	8000, bubble2Down);
 	}
 
 	function bubble2Down() {
-		$('#bubble2 img').animate({width:'+=31px',height:'+=44px'},	8000, bubble2Up)
+		$('#bubble2 img').animate({width:'+=31px',height:'+=44px'},	8000, bubble2Up);
 	}
 
 	function bubble3Up() {
-		$('#bubble3 img').animate({width:'-=38px',height:'-=24px'},	16000, bubble3Down)
+		$('#bubble3 img').animate({width:'-=38px',height:'-=24px'},	16000, bubble3Down);
 	}
 
 	function bubble3Down() {
-		$('#bubble3 img').animate({width:'+=38px',height:'+=24px'},	16000, bubble3Up)
+		$('#bubble3 img').animate({width:'+=38px',height:'+=24px'},	16000, bubble3Up);
 	}
 
 	function bubble4Up() {
-		$('#bubble4 img').animate({width:'-=38px',height:'-=40px'},	7000, bubble4Down)
+		$('#bubble4 img').animate({width:'-=38px',height:'-=40px'},	7000, bubble4Down);
 	}
 
 	function bubble4Down() {
-		$('#bubble4 img').animate({width:'+=38px',height:'+=40px'},	7000, bubble4Up)
+		$('#bubble4 img').animate({width:'+=38px',height:'+=40px'},	7000, bubble4Up);
 	}
 
 </script>
@@ -206,18 +200,18 @@
 			max-width: 1000px;
 		}
 		nav {
-			width: 70%;
-			margin: 0 auto;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-around;
+			margin: 0 auto;
+			width: 70%;
 			a {
-				border-top: 2px solid rgba(254, 0, 148, 0);
 				border-bottom: 2px solid rgba(254, 0, 148, 0);
+				border-top: 2px solid rgba(254, 0, 148, 0);
 			}
 			a:hover {
-				border-top: 2px solid rgb(254, 0, 148);
 				border-bottom: 2px solid rgb(254, 0, 148);
+				border-top: 2px solid rgb(254, 0, 148);
 				text-decoration: none;
 			}
 		}
@@ -226,6 +220,7 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
+			z-index: -1;
 		}
 	}
 

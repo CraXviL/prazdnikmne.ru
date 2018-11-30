@@ -18,7 +18,7 @@
 				</ul>
 				<p>Мы и «в город Изумрудный пойдем дорогой трудной», и «звездами континентов» станем, и даже в школу для волшебниц и волшебников вступим. Наши возможности ограничены только нашей фантазией. А кто сказал, что у фантазии есть границы?</p>
 			</div>
-			<img src="img/main/child-ingridients.png">
+			<img src="img/main/child-ingridients.png" alt="child-ingridients.png">
 		</div>
 		<app-ingridients></app-ingridients>
 		<section id="block-order" class="order" :class="$route.name">
@@ -30,11 +30,11 @@
 		<div id="block-crew">
 			<h2>Команда волшебников</h2>
 			<ul>
-				<li><img src="img/photo/crew-boss.jpg"><p>Основатель<br>компании:<br>Баженова Анастасия</p></li>
-				<li><img src="img/photo/crew-comdir.jpg"><p>Коммерческий<br>директов:<br>Привалов Олег</p></li>
-				<li><img src="img/photo/crew-art.jpg"><p>АРТ-Менеджер:<br>Липовая Анастасия</p></li>
-				<li><img src="img/photo/crew-adm.jpg"><p>Офисный<br>администратор:<br>Кустова Анна</p></li>
-				<li><img src="img/photo/crew-anim.jpg"><p>Весёлые<br>аниматоры</p></li>
+				<li><img src="img/photo/crew-boss.jpg" alt="boss"><p>Основатель<br>компании:<br>Баженова Анастасия</p></li>
+				<li><img src="img/photo/crew-comdir.jpg" alt="comdir"><p>Коммерческий<br>директов:<br>Привалов Олег</p></li>
+				<li><img src="img/photo/crew-art.jpg" alt="art"><p>АРТ-Менеджер:<br>Липовая Анастасия</p></li>
+				<li><img src="img/photo/crew-adm.jpg" alt="adm"><p>Офисный<br>администратор:<br>Кустова Анна</p></li>
+				<li><img src="img/photo/crew-anim.jpg" alt="anim"><p>Весёлые<br>аниматоры</p></li>
 			</ul>
 		</div>
 		<div id="block-bottom">
@@ -48,20 +48,20 @@
 				Гарантия качественного праздника 100%<br>
 				или мы готовы вернуть вам деньги!</span></p>
 		</div>
-		<img id="bottom-img" src="img/main/child-bottom.png">
+		<img id="bottom-img" src="img/main/child-bottom.png" alt="child-bottom.png">
 	</div>
 </template>
 
 <script>
 	
-	import appServices from './services'
-	import appIngridients from './ingridients'
-	import appAnimatorGallery from './AnimatorGallery'
-	import appReviews from './TheReviews'
+	import appServices from './services';
+	import appIngridients from './ingridients';
+	import appAnimatorGallery from './AnimatorGallery';
+	import appReviews from './TheReviews';
 
 	export default {
 		components: {appServices, appIngridients, appAnimatorGallery, appReviews}
-	}
+	};
 
 </script>
 
