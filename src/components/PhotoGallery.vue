@@ -198,6 +198,10 @@
 			currentSubService() {
 				this.images = [];
 				this.installGallery();
+			},
+			currentService() {
+				this.images = [];
+				this.installGallery();
 			}
 		}
 	};
