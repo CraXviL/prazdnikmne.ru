@@ -224,7 +224,11 @@
 		}
 	}
 
-	@media (max-width: 735px), (orientation: portrait) {
+	@media (max-height: 450px) {
+		#bg-bottom {display: none}
+	}
+
+	@media (max-width: 800px), (orientation: portrait) {
 		#animation, #bg-bottom {display: none}
 		a, h5, #logo {margin-top: 5%}
 	}

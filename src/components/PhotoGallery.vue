@@ -220,7 +220,8 @@
 			opacity: 1
 		}
 		#play {
-			margin-top: 50px;
+			height: 67px;
+			margin-top: 45px;
 			position: relative;
 		}
 	}
