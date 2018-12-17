@@ -35,7 +35,11 @@
 			<button class="btn-order">Оставьте заявку</button>
 			<p>Мы вам обязательно перезвоним</p>
 		</section>
-		<app-reviews></app-reviews>
+		<section id="block-reviews" :class="$route.name">
+			<div class="wrapper">
+				<app-reviews></app-reviews>
+			</div>
+		</section>
 		<section id="block-crew">
 			<h2>Команда волшебников</h2>
 			<ul>
@@ -47,14 +51,16 @@
 			</ul>
 		</section>
 		<section id="block-bottom">
-			<p><span>Д</span>рузья, мы готовы предложить Вам Полный пакет услуг по организации
-				<br>торжеств-мероприятий-праздников-девичников-и-прочее.
-				<br><br><span>В</span>аш креатив приветствуется! Чем сложнее задача – тем интереснее. 
-				<br><br><span>В</span>ечеринка для друзей-геймеров? - Легко. 
-				<br><br><span>С</span>тильная свадьба для творческих влюбленных? - С удовольствием!
-				<br><br><span>Х</span>отим то, не знаем что, но чтобы было шикарно? – Сложно, но вполне реализуемо. 
-				<br><br><span>Мы креативим для Вас!</span>
-			</p>
+			<div class="wrapper">
+				<p><span>Д</span>рузья, мы готовы предложить Вам Полный пакет услуг по организации
+					<br>торжеств-мероприятий-праздников-девичников-и-прочее.
+					<br><br><span>В</span>аш креатив приветствуется! Чем сложнее задача – тем интереснее. 
+					<br><br><span>В</span>ечеринка для друзей-геймеров? - Легко. 
+					<br><br><span>С</span>тильная свадьба для творческих влюбленных? - С удовольствием!
+					<br><br><span>Х</span>отим то, не знаем что, но чтобы было шикарно? – Сложно, но вполне реализуемо. 
+					<br><br><span>Мы креативим для Вас!</span>
+				</p>
+			</div>
 			<img id="bottom-img" src="img/main/adult-bottom.png" alt="adult-bottom.png">
 		</section>
 	</div>
@@ -145,6 +151,14 @@
 		}
 	}
 
+	#block-reviews {
+		height: 400px;
+		&.adult {
+			background: url("/img/main/bg1.jpg") top;
+			background-color: #FDEEE9;
+		}
+	}
+
 	#block-crew {
 		background: url("/img/main/bg2.jpg") top;
 		background-color: #FFCD8C;
@@ -171,6 +185,11 @@
 	#bottom-img {
 		width: 100%;
 		margin-top: -400px;
+	}
+
+	.wrapper {
+		max-width: $main-width;
+		margin: 0 auto;
 	}
 
 </style>

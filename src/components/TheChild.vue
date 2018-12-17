@@ -26,7 +26,9 @@
 			<button class="btn-order">Оставьте заявку</button>
 			<h5>Мы вам обязательно перезвоним</h5>
 		</section>
-		<app-reviews></app-reviews>
+		<div class="wrapper">
+			<app-reviews></app-reviews>
+		</div>
 		<div id="block-crew">
 			<h2>Команда волшебников</h2>
 			<ul>
@@ -38,15 +40,17 @@
 			</ul>
 		</div>
 		<div id="block-bottom">
-			<p><span>М</span>ы - это веселая, задорная команда,<br>
-				"Корпорация праздников Анастасии Баженовой".<br>
-				Агентство по производству незабываемых торжеств!<br>
-				Можем организовать "праздник под ключ",<br>
-				от написания сценария до его воплощения.<br>
-				<span>Если мы берёмся за дело у нас всегда<br>
-				выходит отличный результат!<br>
-				Гарантия качественного праздника 100%<br>
-				или мы готовы вернуть вам деньги!</span></p>
+			<div class="wrapper">
+				<p><span>М</span>ы - это веселая, задорная команда,<br>
+					"Корпорация праздников Анастасии Баженовой".<br>
+					Агентство по производству незабываемых торжеств!<br>
+					Можем организовать "праздник под ключ",<br>
+					от написания сценария до его воплощения.<br>
+					<span>Если мы берёмся за дело у нас всегда<br>
+					выходит отличный результат!<br>
+					Гарантия качественного праздника 100%<br>
+					или мы готовы вернуть вам деньги!</span></p>
+				</div>
 		</div>
 		<img id="bottom-img" src="img/main/child-bottom.png" alt="child-bottom.png">
 	</div>
@@ -119,9 +123,8 @@
 		}
 	}
 
-	#block-crew {background-color: #4FBFD8}
-
 	#block-crew {
+		background-color: #4FBFD8;
 		li {
 			margin: 2%;
 			color: white;
@@ -136,12 +139,11 @@
 	#block-bottom {
 		background: url("/img/main/child-photo-main.jpg") no-repeat left;
 		background-size: contain;
-	}
-
-	#block-bottom p {
-		height: 500px;
-		padding: 1%;
-		text-align: right
+		p {
+			height: 500px;
+			padding: 1%;
+			text-align: right
+		}
 	}
 
 	#bottom-img {
@@ -149,4 +151,9 @@
 		margin-top: -200px;
 	}
 	
+	.wrapper {
+		max-width: $main-width;
+		margin: 0 auto;
+	}
+
 </style>

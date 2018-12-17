@@ -104,11 +104,9 @@
 			border-bottom: 2px solid $pink1;
 		}
 	}
+	
 	.slick-dots {
-	    position: absolute;
-	    bottom: 0;
-	    list-style: none;
-	    text-align: center;
+	    margin-top: -50px;
 	    li {
 		    position: relative;
 		    display: inline-block;

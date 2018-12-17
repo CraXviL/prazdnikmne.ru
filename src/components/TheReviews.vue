@@ -1,5 +1,5 @@
 <template>
-	<section :class="$route.name">
+	<div>
 		<h2>Отзывы о нашей работе</h2>
 		<slick ref="slick" :options="slickOptions">
 			<div id="review" v-for="(review, i) in reviews">
@@ -7,7 +7,7 @@
 				<p v-html="review"></p>
 			</div>
 		</slick>
-	</section>
+	</div>
 </template>
 
 <script>
@@ -80,30 +80,19 @@
 
 <style lang="scss" scoped>
 	
-	section {
-		height: 400px;
-		&.adult {
-			background: url("/img/main/bg1.jpg") top;
-			background-color: #FDEEE9;
+	h2 {
+		color: #883589;
+	}
+	#review {
+		margin-left: 10%;
+		img {
+			margin: 30px 0 0 50px;
+			border-radius: 50%;
+			float: left;
 		}
-		&>div {
-			display: flex;
-			justify-content: center;
-		}
-		h2 {
-			color: #883589;
-		}
-		#review {
-			margin-left: 20%;
-			img {
-				margin: 30px 0 0 50px;
-				border-radius: 50%;
-				float: left;
-			}
-			p {
-				margin-left: 220px;
-				width: 600px
-			}
+		p {
+			margin-left: 220px;
+			width: 600px
 		}
 	}
 
