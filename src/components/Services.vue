@@ -214,7 +214,7 @@
 			selectService(e) {
 				this.currentService = e.currentTarget.getAttribute('id');
 				this.currentSubService = '';
-				console.log(this.currentService);
+				// console.log(this.currentService);
 			},
 			setCurrentSubService(currentSubService) {
 				this.currentSubService = currentSubService;

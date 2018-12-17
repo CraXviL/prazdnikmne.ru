@@ -43,24 +43,22 @@
 <script>
 
 	window.onload = function() {
-		minion();
-		$(window).resize(minion);
-		$('#adult').hover(animation_adult, animation_adult_back);
-		$('#child').hover(animation_child, animation_child_back);
+		setPositionForMinion();
+		$(window).resize(setPositionForMinion);
+		$('#adult').hover(startAnimationAdult, finishAnimationAdult);
+		$('#child').hover(startAnimationChild, finishAnimationChild);
 		$('#animationAdult').hide();
 		$('#animationChild').hide();
 	};
 
-	function minion() {
+	function setPositionForMinion() {
 		$('#minion img').css('left', function() {
 			return $(window).width()/2-250;
 		});
 	}
 
-	let adultAnimID, ironmanID, oscillationID;
-	function animation_adult() {
-		adultAnim();
-		adultAnimID = setInterval(adultAnim, 1500);
+	let ironmanID, oscillationID;
+	function startAnimationAdult() {
 		$('#animationAdult').show();
 		$('#bg-bottom').animate({bottom: -190}, 300);
 		$('#bottle img').animate({height: '+=450px', bottom: '+=300px'}, 500);
@@ -72,24 +70,23 @@
 		$('#glass img').animate({height: '+=300px', right: '+=400px'}, 500);
 	}
 
-	function animation_adult_back() {
-		clearInterval(adultAnimID);
+	function finishAnimationAdult() {
 		$('#bg-bottom').animate({bottom: 0}, 300);
 		$('#bottle img').animate({height: '-=450px', bottom: '-=300px'}, 300);
 		$('#ring img').animate({bottom: '-=150px', left: '-=100px'}, 300);
 		$('#glass img').animate({height: 300, right: -400}, 300);
 	}
 
-	function animation_child() {
+	function startAnimationChild() {
 		setTimeout(function() {
-			ironmanAnim();
-			ironmanID = setInterval(ironmanAnim, 5000);
+			startIronmanAnimation();
+			ironmanID = setInterval(startIronmanAnimation, 5000);
 		}, 500);
 		$('#animationChild').show();
 		$('#bg-bottom').animate({bottom: -190}, 300);
 		$('#minion img').animate({bottom: -100}, 300);
 		$('#kid img').animate({bottom:0, right:0}, 500);
-		$('#fair img').animate({bottom: -100, left: -100}, 500, oscillation);
+		$('#fair img').animate({bottom: -100, left: -100}, 500, startOscillation);
 		$('#confetti1 img').animate({right: 250, bottom:0}, 500)
 							.animate({width: '+=300px', height: '+=300px'},
 								{queue:false, duration:5000});
@@ -109,7 +106,7 @@
 							1000, bubble4Up);
 	}
 
-	function animation_child_back() {
+	function finishAnimationChild() {
 		setTimeout(function() {
 			clearInterval(oscillationID);
 			clearInterval(ironmanID);
@@ -126,22 +123,13 @@
 		$('#bubble4 img').stop(true).animate({width:150, height:160, left:1000, bottom:-160}, 300);
 	}
 
-	function ironmanAnim() {
+	function startIronmanAnimation() {
 		$('#ironman img').animate({top: '-=800px', left: '+=1500px'}, 1000,
 							function() {$(this).css({top: 300, left: -500});
 		});
 	}
 
-	function adultAnim() {
-		$('#bouquet img').animate({height: '+=400px', bottom: '+=1080px', left: '+=1500px'},
-						1500, function() {$(this).css({height: 100,	bottom: -100, left: 0});
-		});
-		$('#garter img').animate({height: '+=200px', bottom: '+=1080px', left: '+=1500px'},
-						1000, function() {$(this).css({height: 100, bottom: -100, left: 300});
-		});
-	}
-
-	function oscillation() {
+	function startOscillation() {
 		oscillationID = setInterval(function() {
 		let offsetX = "+=" + (Math.floor(Math.random() * 50 - 25));
 		let offsetY = "+=" + (Math.floor(Math.random() * 50 - 25));
