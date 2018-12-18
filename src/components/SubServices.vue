@@ -372,7 +372,7 @@
 <style lang="scss">
 
 	#subService {
-	    max-height: 200px;
+	    height: 220px;
 	    display: flex;
 	    flex-direction: column;
 	    flex-wrap: wrap;
