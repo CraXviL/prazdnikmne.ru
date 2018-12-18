@@ -218,7 +218,7 @@
 
 	@media (max-width: 800px), (orientation: portrait) {
 		#animation, #bg-bottom {display: none}
-		a, h5, #logo {margin-top: 5%}
+		#body a, #body h5, #body #logo {margin-top: 5%}
 	}
 	/*******************************ANIMATION***********************************/
 

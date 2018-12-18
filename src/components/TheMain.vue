@@ -70,8 +70,6 @@
 
 	@import '../styles/variables.scss';
 
-	html {min-width: $main_width}
-
 	body {overflow: auto}
 
 	.container {
@@ -86,7 +84,7 @@
 		#logo {
 			background: url(/img/main/logo-sm.png) center no-repeat;
 			background-size: contain;
-			flex-basis: 20%;
+			flex-basis: 250px;
 		}
 		nav {
 			flex-basis: 700px;
@@ -104,7 +102,7 @@
 			border-bottom: 2px solid $pink1;
 		}
 	}
-	
+
 	.slick-dots {
 	    margin-top: -50px;
 	    li {
