@@ -48,17 +48,24 @@
 		mounted() {
 			form: {
 				this.form_open();
+				this.form_close();
 			}
 		},
 		updated() {
 			form: {
 				this.form_open();
+				this.form_close();
 			}
 		},
 		methods: {
 			form_open() {
-				$('.btn-order').on('click', function(){
+				$('.btn-order').click(() => {
 					$('form').animate({top:100},500);
+				});
+			},
+			form_close() {
+				$('#form_close, nav h4').click(() => {
+					$('form').animate({top:-500},500);
 				});
 			}
 		}

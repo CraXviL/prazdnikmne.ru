@@ -1,7 +1,7 @@
 <template>
-	<form name="order" action="sendmail.php" method="post">
+	<form name="order">
 		<h2>Оставить заявку</h2>
-		<div @click="form_close"><icon name="times"></icon></div>
+		<div id="form_close"><icon name="times"></icon></div>
 		<label for="name"><h5 class="pink">Ваше имя</h5></label>
 		<input type="text" name="name" size="22" required>
 		<label for="phone"><h5 class="pink">Номер телефона</h5></label>
@@ -17,13 +17,21 @@
 	export default {
 		components: {
 			Icon
-		},
-		methods: {
-			form_close() {
-				$('form').animate({top:-500},500);
-			}
 		}
 	};
+
+	document.addEventListener('DOMContentLoaded', () => {
+		$('form').submit((e) => {
+			e.preventDefault();
+			$.ajax({
+				url: 'sendmail.php',
+				type: 'POST',
+				data: $('form').serialize()
+			});
+			$('form input, form label').hide();
+			$('form h2').html('Заявка отправлена');
+		});
+	});
 
 </script>
 
