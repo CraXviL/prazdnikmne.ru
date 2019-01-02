@@ -59,12 +59,12 @@
 		},
 		methods: {
 			form_open() {
-				$('.btn-order').click(() => {
+				$('.btn-order').onDelay('click', () => {
 					$('form').animate({top:100},500);
 				});
 			},
 			form_close() {
-				$('#form_close, nav h4').click(() => {
+				$('#form_close, nav h4').onDelay('click', () => {
 					$('form').animate({top:-500},500);
 				});
 			}

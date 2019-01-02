@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 
 import jquery from 'jquery';
+import './delayEvent.jquery.js';
 import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import AnimatedVue from 'animated-vue';
