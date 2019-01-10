@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+https://prazdnikmne.ru/
+
 ## Build Setup
 
 ``` bash
