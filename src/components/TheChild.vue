@@ -72,6 +72,11 @@
 <style lang="scss" scoped>
 
 	@import '../styles/variables.scss';
+
+	.wrapper {
+		max-width: $main-width;
+		margin: 0 auto;
+	}
 	
 	#block-animators {
 		color: white;
@@ -83,7 +88,7 @@
 			margin-top: -50px;
 		}
 		.text {
-			width: 820px;
+			width: 850px;
 			margin: 0 auto;
 			text-align: center;
 		}
@@ -151,9 +156,4 @@
 		margin-top: -200px;
 	}
 	
-	.wrapper {
-		max-width: $main-width;
-		margin: 0 auto;
-	}
-
 </style>

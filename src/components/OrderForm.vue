@@ -6,7 +6,7 @@
 		<input type="text" name="name" size="22" required>
 		<label for="phone"><h5 class="pink">Номер телефона</h5></label>
 		<input type="tel" name="phone" size="22" required>
-		<br><br><input type="submit" name="send" id="submit" onclick="ga('send', 'event', 'form2', 'click'); yaCounter46018356.reachGoal('formСlick');">
+		<input id="submit" type="submit" name="send" onclick="ga('send', 'event', 'form2', 'click'); yaCounter46018356.reachGoal('formСlick');">
 	</form>
 </template>
 
@@ -26,11 +26,17 @@
 			$.ajax({
 				url: 'sendmail.php',
 				type: 'POST',
-				data: $('form').serialize()
+				data: $('form').serialize(),
+		        success: function () {
+		            console.log('Запрос отправлен');
+		        },
+		        error: function () {
+		            console.log('Возникла ошибка при отправке');
+		        }
 			});
 			$('form input, form label').hide();
 			$('form h2').html('Благодарим Вас за заявку!');
-			$('form').append('<p>Проведём ваш праздник ярко, весело и с душой!</p>');
+			$('form').append('<h2>Проведём ваш праздник ярко, весело и с душой!</h2>');
 		});
 	});
 
@@ -66,7 +72,7 @@
 		input#submit {
 			height: 35px;
 			width: 220px;
-			margin-top: 10px;
+			margin-top: 30px;
 			color: white;
 			background-color: $pink1;
 			font-size: 1.2em;

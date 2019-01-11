@@ -3,7 +3,7 @@
 	<ul class="owl-carousel animators-carousel">
 	    <li v-for="(item, i) in 73" :key="i">
 	       	<img :src="'img/animators/animator-'+i+'.jpg'" @click="indexAnimator = i">
-	       	<p> {{ animators[i] }} </p>
+	       	<td> {{ animators[i] }} </td>
 	       	<button class="btn-order">ЗАКАЗАТЬ</button>
 	    </li>
 	</ul>
@@ -61,7 +61,12 @@
 		margin: 0 auto;
 		li {width: 150px}
 		img {cursor: pointer}
-		p {height: 40px}
+		td {
+			height: 60px;
+			width: 150px;
+			text-align: center;
+			vertical-align: middle;
+		}
 		button {
 			width: 100px;
 			height: 25px;

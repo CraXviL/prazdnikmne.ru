@@ -213,6 +213,7 @@
 	section {
 		display: flex;
 		justify-content: space-around;
+		ul {margin-top: -10px}
 		img {
 			cursor: pointer;
 			position: absolute;

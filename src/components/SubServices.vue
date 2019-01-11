@@ -1,7 +1,7 @@
 <template>
 	<div id="subService">
-		<div v-for="(item, i) in subServiceContent" :key="i" v-if="currentSubService === ''">
-			<h6 :id="i" @click="selectSubService($event)" v-html="item.title"></h6>
+		<div id="subMenu">
+			<h6 v-for="(item, i) in subServiceContent" :key="i" v-if="currentSubService === ''" :id="i" @click="selectSubService($event)" v-html="item.title"></h6>
 		</div>
 		<div v-if="itemContent !== '' && currentSubService !== ''">
 			<h6 @click="artistsBack">Назад</h6>
@@ -111,11 +111,11 @@
 					},{
 						name: 'flower',
 						title: 'Цветок лотос',
-						content: 'Мы сделаем ваше появление перед гостями и зрителями незабываемым, волшебным и красивым, как сияющий цветок лотоса.<br><br>Жених и невеста эффектно появятся из прекрасного раскрывающегося цветка. Этот торжественный момент мы украсим танцем нимф и ярким конфетти или дымовыми эффектами.'
+						content: 'Мы сделаем ваше появление перед гостями и зрителями незабываемым, волшебным и красивым, как сияющий цветок лотоса.</p><p>Жених и невеста эффектно появятся из прекрасного раскрывающегося цветка. Этот торжественный момент мы украсим танцем нимф и ярким конфетти или дымовыми эффектами.'
 					},{
 						name: 'springMan',
 						title: 'Человек пружина',
-						content: 'Отгадайте загадку: что такое - веселое, гибкое, радужное, изумительное, невероятное?  Не знаете?<br><br>Это наш человек-пружина!'
+						content: 'Отгадайте загадку: что такое - веселое, гибкое, радужное, изумительное, невероятное?  Не знаете?</p><p>Это наш человек-пружина!'
 					},{
 						name: 'bubbleShow',
 						title: 'Шоу гигантских <br> мыльных пузырей',
@@ -269,7 +269,7 @@
 					},{
 						name: 'springMan',
 						title: 'Человек пружина',
-						content: 'Отгадайте загадку: что такое - веселое, гибкое, радужное, изумительное, невероятное?  Не знаете?<br><br>Это наш человек-пружина!'
+						content: 'Отгадайте загадку: что такое - веселое, гибкое, радужное, изумительное, невероятное?  Не знаете?</p><p>Это наш человек-пружина!'
 					},{
 						name: 'bubbleShow',
 						title: 'Шоу гигантских <br> мыльных пузырей',
@@ -334,21 +334,21 @@
 					}],
 				itemTitle: '',
 				itemContent: '',
-			}
+			};
 		},
 		computed: {
 			subServiceContent() {
 				if (this.$route.name === 'adult') {
 					if (this.currentService === 'artists') {
-						return this.serviceAdultArtist
+						return this.serviceAdultArtist;
 					} else {
-						return this.serviceAdultTable
+						return this.serviceAdultTable;
 					}
 				} else {
 					if (this.currentService === 'artists') {
-						return this.serviceChildArtist
+						return this.serviceChildArtist;
 					} else {
-						return this.serviceChildTable
+						return this.serviceChildTable;
 					}
 				}
 			}
@@ -365,18 +365,17 @@
 				this.$emit('setCurrentSubService', '');
 			}
 		}
-	}
+	};
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped="">
 
-	#subService {
-	    height: 220px;
-	    display: flex;
-	    flex-direction: column;
-	    flex-wrap: wrap;
-		p {font-size: 0.8em}
+	#subMenu {
+	    columns: 2;
+	}
+	p {
+		font-size: 0.8em;
 	}
 
 </style>
